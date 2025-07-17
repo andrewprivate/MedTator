@@ -30,7 +30,7 @@ var ann_parser = {
     ///////////////////////////////////////////////////////
     txt2ann: function(txt, dtd) {
         var ann = {
-            text: txt,
+            text: txt.replace(/\r\n/g, '\n').replace(/\r/g, '\n'), // normalize line breaks. XML automatically does CRLF to LF conversion
             dtd_name: dtd.name,
             tags: [],
             meta: {},  // the meta data of this annotation
